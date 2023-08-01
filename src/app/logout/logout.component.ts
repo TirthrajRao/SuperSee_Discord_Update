@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Location } from "@angular/common";
 import { UserService } from "../services/user.service";
+import { async } from "rxjs/internal/scheduler/async";
 
 @Component({
   selector: "app-logout",
@@ -15,19 +16,23 @@ export class LogoutComponent implements OnInit {
     private location: Location,
     private router: Router,
     public _userService: UserService
-  ) {}
+  ) { }
+
   goBack() {
     console.log("click cancel");
     this.location.back();
   }
-  gologin() {
+
+  async gologin() {
     console.log("clicked logout");
-    localStorage.clear();
     this.checkStatus("stopLogout");
-    this.router.navigateByUrl("/login");
+    setTimeout(async () => {
+      await localStorage.clear();
+      this.router.navigateByUrl("/login");
+    }, 200)
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   checkStatus(status) {
     const object = {

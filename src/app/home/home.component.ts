@@ -692,7 +692,7 @@ export class HomeComponent implements OnInit {
     console.group("startCapturing");
     console.log("isFirst", this.isFirst);
     if (this.isFirst) {
-      const randomTime = _.random(0, 1000 * 60 * 3);
+      const randomTime = _.random(0, 1000 * 60);
       console.log("randomTime", randomTime);
       this.timeout = setTimeout(() => {
         if (this.running) {
@@ -702,7 +702,7 @@ export class HomeComponent implements OnInit {
     }
 
     this.intervalId = setInterval(() => {
-      const randomTime = _.random(0, 1000 * 60 * 3);
+      const randomTime = _.random(0, 1000 * 60);
       console.log("randomTime 2", randomTime);
       this.timeout = setTimeout(() => {
         if (this.running) {
@@ -1027,7 +1027,7 @@ export class HomeComponent implements OnInit {
       localStorage.setItem("isRunning", JSON.stringify(this.running));
 
       // No need to remove this
-      // this.startCapturing();
+      this.startCapturing();
     }
 
     // on start, after 2 second, read json file
