@@ -18,7 +18,7 @@
     "sass"
   ],
   "main": "main.js",
-  "private": true,
+  "private": false,
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "ng": "ng",

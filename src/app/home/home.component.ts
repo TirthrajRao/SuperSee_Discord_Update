@@ -235,10 +235,10 @@ export class HomeComponent implements OnInit {
           }, 2000);
         }
 
-        // setTimeout(async () => {
-        //   this.start();
-        //   this.checkStatus("online");
-        // }, 200);
+        setTimeout(async () => {
+          this.start();
+          this.checkStatus("online");
+        }, 200);
       });
     }, 1);
     /**

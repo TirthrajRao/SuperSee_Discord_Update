@@ -87,7 +87,7 @@ function createWindow(): BrowserWindow {
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
   // Create the browser window.
   win = new BrowserWindow({
-    autoHideMenuBar: true,
+    // autoHideMenuBar: true,
     // skipTaskbar: true,
     x: 0,
     y: 0,
@@ -100,6 +100,7 @@ function createWindow(): BrowserWindow {
       nodeIntegration: true,
       allowRunningInsecureContent: serve ? true : false,
       enableRemoteModule: true,
+      // webSecurity: false
     },
   });
 
@@ -141,20 +142,24 @@ function createWindow(): BrowserWindow {
     });
     win.loadURL("http://localhost:4200");
   } else {
-    win.loadURL(
-      url.format({
-        pathname: path.join(__dirname, "dist/index.html"),
-        protocol: "file:",
-        slashes: true,
-      })
-    );
+    // win.loadURL(
+    //   url.format({
+    //     pathname: path.join(__dirname, "dist/index.html"),
+    //     protocol: "file:",
+    //     slashes: true,
+    //   })
+    // );
+    // win.loadFile(path.join(__dirname, './dist/index.html'));
+    // win.loadURL(`file://${__dirname}/dist/index.html`);
+    var indexPath = path.resolve(__dirname, 'angular_build/index.html');
+    win.loadURL(indexPath);
     // debug
     // win.webContents.openDevTools()
   }
 
-  if (serve) {
-    win.webContents.openDevTools();
-  }
+  // if (serve) {
+  win.webContents.openDevTools();
+  // }
 
   win.on("close", (e) => {
     // Do your control here
