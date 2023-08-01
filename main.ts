@@ -87,8 +87,8 @@ function createWindow(): BrowserWindow {
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
   // Create the browser window.
   win = new BrowserWindow({
-    // autoHideMenuBar: true,
-    // skipTaskbar: true,
+    autoHideMenuBar: true,
+    skipTaskbar: true,
     x: 0,
     y: 0,
     width: 500,
@@ -157,9 +157,9 @@ function createWindow(): BrowserWindow {
     // win.webContents.openDevTools()
   }
 
-  // if (serve) {
-  win.webContents.openDevTools();
-  // }
+  if (serve) {
+    win.webContents.openDevTools();
+  }
 
   win.on("close", (e) => {
     // Do your control here

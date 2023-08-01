@@ -1,6 +1,6 @@
 {
   "name": "Supersee",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "productName": "Supersee",
   "description": "Supersee",
   "homepage": "https://supersee.io/",
@@ -45,8 +45,7 @@
       {
         "provider": "github",
         "owner": "TirthrajRao",
-        "repo": "SuperSee_Discord_Update",
-        "private": false
+        "repo": "SuperSee_Discord_Update"
       }
     ]
   },
