@@ -116,7 +116,7 @@ export class LoginComponent implements OnInit {
           };
           this._userService.changeStatus(object);
 
-          this.router.navigate(["home"]);
+          this.router.navigate(["dashboard"]);
           // console.log(value);
           this.loginForm.reset();
         },
@@ -231,7 +231,7 @@ export class LoginComponent implements OnInit {
           if (
             logDetails.attendance.length > 0 &&
             logDetails.attendance[logDetails.attendance.length - 1].date ==
-              this.currentDate
+            this.currentDate
           ) {
             console.log("Same date.");
           } else {

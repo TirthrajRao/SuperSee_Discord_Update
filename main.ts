@@ -183,7 +183,7 @@ function createWindow(): BrowserWindow {
 }
 
 function createTray(app) {
-  tray = new Tray(path.join(__dirname, "dist/assets/logo.png"));
+  tray = new Tray(path.join(__dirname, "angular_build/assets/logo.png"));
   const contextMenu = Menu.buildFromTemplate([
     {
       label: "Show-App",
