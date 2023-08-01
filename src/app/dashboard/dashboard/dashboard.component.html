@@ -1,0 +1,5 @@
+<app-header></app-header>
+<div>
+    <app-home [ngStyle]="{'display': ishome ? 'block' : 'none' , 'visibility':ishome ? 'visible' : 'hidden'}"></app-home>
+    <app-history  [ngStyle]="{'display': !ishome ? 'block' : 'none' , 'visibility':!ishome ? 'visible' : 'hidden'}"></app-history>
+</div>

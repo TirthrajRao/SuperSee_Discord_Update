@@ -1,0 +1,99 @@
+.page_title span{
+    font-weight: 400;
+}
+.login-icon{
+    background-color: #F5F2FA;
+    width: 66px;
+    height: 66px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+}
+.login-icon i{
+    /* font-size: 20px; */
+    color: #673AB7;
+}
+.page_title{
+    font-weight: bold;
+    text-align: start;
+}
+// h3.page_title{
+//     font-weight: 600;
+// }
+h3 img{
+    height: 3.3rem;
+    width: auto;
+}
+p{
+    color: #00304A;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.69;
+}
+form{
+    background-color: #fff;
+    max-width: 310px;
+    width: 100%;
+    /* padding: 50px 35px; */
+    margin: 10px auto;
+    border-radius: 10px;
+}
+.input-field .validate{
+    border-radius: 6px;
+    border: 2px solid #F7FAFA;
+    background: #FFF;
+    padding: 13px 15px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: #01023f;
+}
+.input-field{
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+button{
+    display: flex;
+    padding: 11px 14px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.login_button_div button {
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    background-color:#673AB7;
+    margin-top: 2rem;
+}
+.logout-button{
+    background-color: #15003B;
+    color: #fff;
+}
+.cancel-button{
+    background-color: rgba(245, 242, 250, 0.80);
+    color: #15003B;
+}
+input[type="email"]:focus,input[type="password"]:focus{
+    box-shadow: none!important;
+    border-bottom: 2px solid #F7FAFA!important;
+}
+.back-login:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.email-detail{
+    margin: 0;
+    color: #00304A;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.6;
+    text-align: start;
+}

@@ -1,0 +1,113 @@
+<div class="row mt-3">
+  <div class="col s12">
+    <h3
+      class="page_title"
+      style="margin-top: 0; display: flex; align-items: center"
+    >
+      <img src="../../assets/images/logo.png" alt="" />
+      <span>Super</span>See
+    </h3>
+  </div>
+</div>
+
+<div class="login_page">
+  <div class="container">
+    <div class="login_form_box">
+      <div class="row mt-5 pt-5">
+        <div class="col s12 d-flex justify-content-center">
+          <div class="login-icon">
+            <i class="material-icons prefix">login</i>
+          </div>
+        </div>
+        <div class="col s12">
+          <h3
+            class="page_title"
+            style="margin-top: 10px; text-align: center; font-weight: 600"
+          >
+            Log in
+          </h3>
+        </div>
+      </div>
+      <form [formGroup]="loginForm" class="">
+        <div class="row">
+          <div class="col s12">
+            <p class="email-detail">Email</p>
+          </div>
+          <div class="input-field col s12">
+            <input
+              id="icon_email"
+              type="email"
+              class="validate"
+              autocomplete="off"
+              formControlName="email"
+              placeholder="name@example.com"
+            />
+          </div>
+          <div class="col s12">
+            <p class="email-detail">Password</p>
+          </div>
+          <div class="input-field col s12">
+            <!-- <i class="material-icons prefix">lock</i> -->
+            <div class="input-eye">
+              <input
+                id="icon_password"
+                [type]="show ? 'text' : 'password'"
+                class="validate"
+                autocomplete="off"
+                formControlName="password"
+                placeholder="Password"
+              />
+
+              <img
+                class="passwordIcon"
+                *ngIf="!show"
+                (click)="hideShowPassword()"
+                src="../../assets/hide.png"
+              />
+              <img
+                class="passwordIcon"
+                *ngIf="show"
+                (click)="hideShowPassword()"
+                src="../../assets/view.png"
+              />
+            </div>
+            <!-- <label for="icon_password">Password</label> -->
+          </div>
+          <div class="col s6" style="display: flex; align-items: center">
+            <label>
+              <input type="checkbox" class="filled-in" checked="checked" />
+              <span></span>
+            </label>
+            <a style="color: rgba(0, 0, 0, 0.87)">Remember me</a>
+          </div>
+          <div class="col s6" style="display: flex; justify-content: flex-end">
+            <a
+              href=""
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              routerLink="/forgotpassword"
+              class="forgot-pass"
+              style="display: none"
+              >Forgot password</a
+            >
+          </div>
+          <div class="col s12 login_button_div">
+            <button
+              type="submit"
+              (click)="loginUser(loginForm.value)"
+              [disabled]="isDisable || loginForm.invalid"
+              class="waves-effect waves-light"
+            >
+              Login
+            </button>
+            <p *ngIf="isError" class="error_text">
+              <span class="h6 font-weight-bold text-danger text-center">{{
+                errorMessage
+              }}</span>
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

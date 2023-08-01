@@ -1,0 +1,89 @@
+<!-- <app-header [home]="true"></app-header> -->
+<section class="welcome_section">
+  <div class="container pt-1">
+    <h3 class="page_title">{{ userInfo.name }}</h3>
+    <p class="login-detail m-0">{{ currentDay }}</p>
+
+    <h1 ng-model="" class="timer">
+      {{ hours | numpad : 2 }}:{{ minutes | numpad : 2 }}:{{
+      seconds | numpad : 2
+      }}
+    </h1>
+    <div class="row pt-2 pb-2">
+      <div class="col s12 d-flex justify-content-center">
+        <button [disabled]="!isStart"
+          class="timer_button z-depth-2 button_primary mt-3 mb-3 ms-3 me-2 waves-effect waves-light"
+          (click)="start(); checkStatus('online')" id="start">
+          start
+        </button>
+
+        <button [disabled]="isStart"
+          class="timer_button z-depth-2 waves-effect waves-light stop-button mt-3 mb-3 ms-2 me-3"
+          (click)="stop(); checkStatus('offline')" id="stop">
+          stop
+        </button>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col s12 d-flex justify-content-center">
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s6">
+                <div class="row">
+                  <div class="col s12 d-flex align-items-center justify-content-center">
+                    <i class="material-icons prefix me-2">restore</i>
+
+                    <p>Clock in</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s2"></div>
+                  <div class="col s10">
+                    <p>{{ clockIn ? clockIn : "00:00:00" }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col s6">
+                <div class="row">
+                  <div class="col s12 d-flex align-items-center justify-content-center">
+                    <i class="material-icons prefix me-2">restore</i>
+
+                    <p>Clock out</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s2"></div>
+                  <div class="col s10">
+                    <p>{{ clockOut ? clockOut : "00:00:00" }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12">
+        <p class="total-working">Total working hours <span>
+            {{ hours | numpad : 2 }}:{{ minutes | numpad : 2 }}:{{
+            seconds | numpad : 2
+            }}
+          </span></p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container align-content-center">
+  <div class="row justify-content-center"></div>
+  <div class="row justify-content-around"></div>
+</div>
+<div *ngIf="loading">
+  <div class="loading-wrapper">
+    <div class="loader"></div>
+  </div>
+</div>
+<div *ngIf="seconds != 0 && !diff">
+  <div class="loader-wrapper">
+    <div class="loader"></div>
+  </div>
+</div>

@@ -1,0 +1,150 @@
+.page_header{
+    color: #01023f;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+}
+input.datepicker{
+    width: 130px;
+    border: none;
+}
+input.datepicker::placeholder{
+    color: #00304A;
+    font-size: 14px;
+    font-weight: 600;
+    
+}
+
+.clalender-div{
+    border-radius: 4px;
+    background: #F5F2FA;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    color: #00304A;
+}
+.border-bottom{
+    border-bottom:1px solid #DEE3E5;
+}
+.history-cards{
+    border-radius: 3px;
+ 
+    background: rgba(245, 242, 250, 0.45);
+}
+.history-cards .history-cards-date{
+    color: #00304A;
+    font-size: 12px;
+    font-weight: 700;
+    opacity: 0.6;
+}
+.history-cards .history-cards-details p{
+    color: #00304A;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: baseline;
+}
+input[type=text]:not(.browser-default):focus:not([readonly]){
+    border-bottom: none!important;
+    box-shadow: none!important;
+}
+.history-cards .history-cards-details  span{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.datepicker-day-button{
+   background-color: #00304A;
+   
+}
+.history-cards .history-cards-details  span.online{
+    background-color: greenyellow!important;
+}
+.history-cards .history-cards-details  span.offline{
+    background-color: tomato!important;
+}
+.history-cards .history-cards-details  span.wfh{
+    background-color: #9D29D3;
+}
+.history-cards .history-cards-details-duration p{
+    color: #00304A;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+.history-cards .customclass p{
+    font-weight: 600;
+    margin: 0;
+    color: red;
+    font-size: 10px;
+}
+.history-cards .history-cards-working-hrs p{
+    color: #00304A;
+    font-size : 14px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+.history-cards .history-cards-working-hrs p span{
+    color: #673AB7;
+    font-size: 14px;
+    font-weight: 700;
+}
+.load-more{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #00304A;
+    font-size: 14px;
+    font-weight: 500;
+}
+.load-more:hover{
+    text-decoration: underline;
+}
+.loader {
+    text-align: center;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    align-items: center;
+  }
+  
+  .loader::before {
+    content: "Please Wait";
+    font-family: "Carter One", cursive;
+  }
+  
+  .loader::after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    font-family: "Carter One", cursive;
+    -webkit-animation: ellipsis steps(4,end) 1s infinite;
+    animation: ellipsis steps(4,end) 1s infinite;
+    content: "...";
+    width: 0;
+    margin-right: 26px;
+  }
+  .loading-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: rgba(221, 221, 221, 0.7);
+  }
+  .total-working{
+    text-align: center;
+    color: #00304A;
+    font-size: 24px;
+    font-weight: 500; 
+  }

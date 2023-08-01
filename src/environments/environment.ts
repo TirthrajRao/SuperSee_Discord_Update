@@ -1,0 +1,13 @@
+export const AppConfig = {
+  production: false,
+  environment: 'LOCAL',
+  firebase: {
+    apiKey: "AIzaSyANTfsTb7aqki9PC0JnsNdUg-Fu2od4fK8",
+    authDomain: "supersee-d8e59.firebaseapp.com",
+    databaseURL: "https://supersee-d8e59-default-rtdb.firebaseio.com",
+    projectId: "supersee-d8e59",
+    storageBucket: "supersee-d8e59.appspot.com",
+    messagingSenderId: "896472724309",
+    appId: "1:896472724309:web:6bfcb7b3bb583eb08135dc"
+  }
+};

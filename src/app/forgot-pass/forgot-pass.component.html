@@ -1,0 +1,99 @@
+<div class="row mt-3">
+  <div class="col s12">
+    <h3
+      class="page_title"
+      style="margin-top: 0; display: flex; align-items: center"
+    >
+      <img src="../../assets/images/logo.png" alt="" />
+      <span>Super</span>See
+    </h3>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mt-5 pt-5">
+    <div class="col s12 d-flex justify-content-center">
+      <div class="login-icon">
+        <svg
+          width="27"
+          height="27"
+          viewBox="0 0 27 27"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <mask
+            id="mask0_169_275"
+            style="mask-type: alpha"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="27"
+            height="27"
+          >
+            <rect
+              x="0.671387"
+              y="0.928223"
+              width="26"
+              height="26"
+              fill="#D9D9D9"
+            />
+          </mask>
+          <g mask="url(#mask0_169_275)">
+            <path
+              d="M12.0465 17.1783H15.2965L14.6736 13.6846C15.0347 13.504 15.3191 13.2422 15.5268 12.8991C15.7344 12.5561 15.8382 12.1769 15.8382 11.7616C15.8382 11.1658 15.6261 10.6557 15.2018 10.2314C14.7775 9.80712 14.2674 9.59497 13.6715 9.59497C13.0757 9.59497 12.5656 9.80712 12.1413 10.2314C11.717 10.6557 11.5049 11.1658 11.5049 11.7616C11.5049 12.1769 11.6087 12.5561 11.8163 12.8991C12.024 13.2422 12.3084 13.504 12.6695 13.6846L12.0465 17.1783ZM13.6715 24.7616C11.1618 24.1297 9.08995 22.6898 7.45592 20.4418C5.8219 18.1939 5.00488 15.6977 5.00488 12.9533V6.34497L13.6715 3.09497L22.3382 6.34497V12.9533C22.3382 15.6977 21.5212 18.1939 19.8872 20.4418C18.2531 22.6898 16.1813 24.1297 13.6715 24.7616ZM13.6715 22.4866C15.5493 21.8908 17.1021 20.6991 18.3299 18.9116C19.5577 17.1241 20.1715 15.138 20.1715 12.9533V7.83455L13.6715 5.39705L7.17155 7.83455V12.9533C7.17155 15.138 7.78544 17.1241 9.01322 18.9116C10.241 20.6991 11.7938 21.8908 13.6715 22.4866Z"
+              fill="#673AB7"
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="col s12">
+      <h3
+        class="page_title"
+        style="margin-top: 10px; text-align: center; font-weight: 600"
+      >
+        Forgot password?
+      </h3>
+    </div>
+  </div>
+  <div class="row pt-2 pb-5">
+    <div class="col s12">
+      <p class="m-0">Enter your registered email below to receive</p>
+      <p class="m-0">password reset instructions.</p>
+    </div>
+  </div>
+  <div class="row">
+    <form action="">
+      <div class="col s12">
+        <p class="email-detail">Email</p>
+      </div>
+      <div class="input-field col s12">
+        <input
+          id="icon_email"
+          type="email"
+          class="validate"
+          autocomplete="off"
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+      </div>
+      <div class="col s12 login_button_div">
+        <button type="submit" class="waves-effect waves-light">
+          Reset password
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="row mt-5">
+    <div class="col s12">
+      <p
+        [routerLink]="['/login']"
+        class="d-flex justify-content-center align-items-center back-login"
+      >
+        <i class="material-icons me-2" style="font-size: 18px">
+          keyboard_backspace</i
+        >Back to login
+      </p>
+    </div>
+  </div>
+</div>

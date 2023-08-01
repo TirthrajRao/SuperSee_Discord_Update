@@ -1,0 +1,57 @@
+.page_title span{
+    font-weight: 400;
+}
+.login-icon{
+    background-color: #F5F2FA;
+    width: 66px;
+    height: 66px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+}
+.login-icon i{
+    /* font-size: 20px; */
+    color: #673AB7;
+}
+.page_title{
+    font-weight: bold;
+    text-align: start;
+}
+h3.page_title{
+    font-weight: 600;
+}
+h3 img{
+    height: 3.3rem;
+    width: auto;
+}
+p{
+    color: #00304A;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+p.warn{
+    color: #00304A;
+    font-size: 12px;
+    font-weight: 600;
+}
+button{
+    display: flex;
+    width: 127px;
+    padding: 11px 14px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.logout-button{
+    background-color: #15003B;
+    color: #fff;
+}
+.cancel-button{
+    background-color: rgba(245, 242, 250, 0.80);
+    color: #15003B;
+
+}

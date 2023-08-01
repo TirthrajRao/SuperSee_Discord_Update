@@ -1,0 +1,31 @@
+<div class="header">
+  <div class="row d-flex align-items-center ps-2 pe-2">
+    <div class="col m3 s3 d-flex justify-content-start align-items-center">
+      <button *ngIf="ishome" class="logout_button button_primary z-depth-2 waves-effect waves-light"
+        (click)="btnAction('home')">
+        History
+      </button>
+      <button *ngIf="!ishome" class="logout_button button_primary z-depth-2 waves-effect waves-light"
+        (click)="btnAction('hisory')">
+        Clock in
+      </button>
+    </div>
+
+
+    <div class="col m6 s6 d-flex justify-content-center align-items-center">
+      <h3 class="page_title m-0" style="margin-top: 0; display: flex; align-items: center">
+        <img src="../../assets/images/logo.png" alt="" />
+        <span>Super</span>See <span style="font-size: 12px;padding-top: 15px;font-weight: 700;"><sub>(Version
+            {{version}})</sub></span>
+      </h3>
+    </div>
+    <div class="col m3 s3 d-flex justify-content-end align-items-center">
+      <button class="logout_button button_primary z-depth-2 waves-effect waves-light" (click)="btnClick()">
+        Logout
+      </button>
+    </div>
+  </div>
+</div>
+<!-- <div>
+  <app-home></app-home>
+</div> -->

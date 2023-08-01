@@ -1,0 +1,330 @@
+<!-- <app-header [home]="false"></app-header> -->
+<div class="row ps-2 pe-2">
+  <div class="col s6 pb-3 pt-3">
+    <h3 class="page_header m-0">history</h3>
+  </div>
+  <div class="col s6 d-flex justify-content-end pb-3 pt-3">
+    <div class="clalender-div">
+      <i class="material-icons prefix me-2">date_range</i>
+      <input
+        id = "dateInputFrom"
+        #dateInputFrom
+        type="text"
+        class="datepicker m-0"
+        placeholder="Wed, Jun 27, 2023"
+        [ngModel]="convertDate(currentDate)"
+        (change)="onDateSelected(dateInputFrom,'from')"
+      />
+    </div>
+    <div class="clalender-div" style="margin-left: 5px">
+      <i class="material-icons prefix me-2">date_range</i>
+      <input
+        id = "dateInputTo"
+        [disabled]="!startDate"
+        #dateInputTo
+        type="text"
+        class="datepicker m-0"
+        placeholder="Wed, Jun 27, 2023"
+        [min]="currentDate"
+        [ngModel]="convertDate(currentDate)"
+        (change)="onDateSelected(dateInputTo,'to')"
+      />
+    </div>
+  </div>
+  <div class="col s12">
+    <div class="border-bottom"></div>
+  </div>
+</div>
+<div class="row ps-2 pe-2">
+  <div class="col s12">
+    <h3
+      class="page_header pb-5 pt-5 m-0"
+      style="opacity: 0.8; font-weight: 500; font-size: 1.3rem"
+    >
+      today
+    </h3>
+  </div>
+</div>
+<div *ngIf="loading">
+  <div class="loading-wrapper">
+    <div class="loader"></div>
+  </div>
+</div>
+<div class="row ps-2 pe-2">
+  <div class="col s12">
+    <div class="row mb-3 m-0 modal-trigger" href="#history-detail"  href="#history-detail" (click)="openDetailModel(item)" *ngFor="let item of logsArr.slice().reverse()">
+      <div class="col s12 history-cards">
+        <div class="row">
+          <div class="col s6 history-cards-date">
+            <p>{{convertDate(item.date)}}</p>
+          </div>
+          <div class="col s6 history-cards-date d-flex justify-content-end">
+            <p>Status</p>
+          </div>
+        </div>
+        <div class="row history-cards-details">
+          <div class="col s3">
+            <div class="row">
+              <div class="col s4 pe-0 d-flex justify-content-center">
+                <i class="material-icons prefix">restore</i>
+              </div>
+              <div class="col s8 ps-0">
+                <p class="m-0">Clock in</p>
+              </div>
+              <div class="col s4 pe-0"></div>
+              <div class="col s8 ps-0 history-cards-details-duration">
+                <p>{{getClockTime(item.timeLog,"in")}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s3">
+            <div class="row">
+              <div class="col s4 pe-0 d-flex justify-content-center">
+                <i class="material-icons prefix">restore</i>
+              </div>
+              <div class="col s8 ps-0">
+                <p class="m-0">Clock out</p>
+              </div>
+              <div class="col s4 pe-0"></div>
+              <div *ngIf="getClockTime(item.timeLog,'out') != 'auto clockout'" class="col s8 ps-0 history-cards-details-duration">
+                <p>{{getClockTime(item.timeLog,"out")}}</p>
+              </div>
+              <div *ngIf="getClockTime(item.timeLog,'out') === 'auto clockout'" class="col s8 ps-0 customclass">
+                <p>{{getClockTime(item.timeLog,"out")}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s3">
+            <div class="row">
+              <div class="col s4 pe-0 d-flex justify-content-center">
+                <i class="material-icons"> free_breakfast </i>
+              </div>
+              <div class="col s8 ps-0">
+                <p class="m-0">Break</p>
+              </div>
+              <div class="col s4 pe-0"></div>
+              <div class="col s8 ps-0 history-cards-details-duration">
+                <p>{{getBrekTime(item.timeLog)}}</p>
+              </div>
+            </div>
+          </div>
+          <!-- <div *ngIf="item.status == 'Absent' || item.status == 'absent'" class="col s3 d-flex justify-content-end align-items-center">
+            <span class="offline"></span>
+            <p class="m-0">
+              <span></span>
+              On leave
+            </p>
+          </div> -->
+          <div class="col s3 d-flex justify-content-end align-items-center">
+            <span *ngIf="findStatus(item) !== 'auto clock-out' && findStatus(item) !== 'Working'" class="online"></span>
+            <span *ngIf="findStatus(item) === 'auto clock-out'" class="offline"></span>
+            <span *ngIf="findStatus(item) === 'Working'" class="wfh"></span>
+
+            <p class="m-0">
+              <span></span>
+              {{findStatus(item)}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s1"></div>
+          <div class="col s11 history-cards-working-hrs ps-0">
+            <p>Total working hours <span>{{item.difference == '-' || item.difference == 'aN:aN:aN' ? '--:--:--' : item.difference }}</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row mb-3 m-0">
+      <div class="col s12 history-cards">
+        <div class="row">
+          <div class="col s6 history-cards-date">
+            <p>September 24, 2017</p>
+          </div>
+          <div class="col s6 history-cards-date d-flex justify-content-end">
+            <p>Status</p>
+          </div>
+        </div>
+        <div class="row history-cards-details">
+          <div class="col s3">
+            <div class="row">
+              <div class="col s4 pe-0 d-flex justify-content-center">
+                <i class="material-icons prefix">restore</i>
+              </div>
+              <div class="col s8 ps-0">
+                <p class="m-0">Clock in</p>
+              </div>
+              <div class="col s4 pe-0"></div>
+              <div class="col s8 ps-0 history-cards-details-duration">
+                <p>06:32:12</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s3">
+            <div class="row">
+              <div class="col s4 pe-0 d-flex justify-content-center">
+                <i class="material-icons prefix">restore</i>
+              </div>
+              <div class="col s8 ps-0">
+                <p class="m-0">Clock out</p>
+              </div>
+              <div class="col s4 pe-0"></div>
+              <div class="col s8 ps-0 history-cards-details-duration">
+                <p>06:32:12</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s3">
+            <div class="row">
+              <div class="col s4 pe-0 d-flex justify-content-center">
+                <i class="material-icons"> free_breakfast </i>
+              </div>
+              <div class="col s8 ps-0">
+                <p class="m-0">Break</p>
+              </div>
+              <div class="col s4 pe-0"></div>
+              <div class="col s8 ps-0 history-cards-details-duration">
+                <p>06:32:12</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s3 d-flex justify-content-end align-items-center">
+            <span class="offline"></span>
+            <p class="m-0">
+              <span></span>
+              On leave
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s1"></div>
+          <div class="col s11 history-cards-working-hrs ps-0">
+            <p>Total working hours <span>08:30:12</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3 m-0">
+      <div class="col s12 history-cards">
+        <div class="row">
+          <div class="col s6 history-cards-date">
+            <p>September 24, 2017</p>
+          </div>
+          <div class="col s6 history-cards-date d-flex justify-content-end">
+            <p>Status</p>
+          </div>
+        </div>
+        <div class="row history-cards-details">
+          <div class="col s3">
+            <div class="row">
+              <div class="col s4 pe-0 d-flex justify-content-center">
+                <i class="material-icons prefix">restore</i>
+              </div>
+              <div class="col s8 ps-0">
+                <p class="m-0">Clock in</p>
+              </div>
+              <div class="col s4 pe-0"></div>
+              <div class="col s8 ps-0 history-cards-details-duration">
+                <p>06:32:12</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s3">
+            <div class="row">
+              <div class="col s4 pe-0 d-flex justify-content-center">
+                <i class="material-icons prefix">restore</i>
+              </div>
+              <div class="col s8 ps-0">
+                <p class="m-0">Clock out</p>
+              </div>
+              <div class="col s4 pe-0"></div>
+              <div class="col s8 ps-0 history-cards-details-duration">
+                <p>06:32:12</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s3">
+            <div class="row">
+              <div class="col s4 pe-0 d-flex justify-content-center">
+                <i class="material-icons"> free_breakfast </i>
+              </div>
+              <div class="col s8 ps-0">
+                <p class="m-0">Break</p>
+              </div>
+              <div class="col s4 pe-0"></div>
+              <div class="col s8 ps-0 history-cards-details-duration">
+                <p>06:32:12</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s3 d-flex justify-content-end align-items-center">
+            <span class="wfh"></span>
+            <p class="m-0">
+              <span></span>
+              Wfh
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s1"></div>
+          <div class="col s11 history-cards-working-hrs ps-0">
+            <p>Total working hours <span>08:30:12</span></p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <div class="col s12" *ngIf="logsArr.length == 0">
+    <p class="load-more">
+      no data found
+    </p>
+  </div>
+  <div class="col s12" *ngIf="logsArr.length != 0">
+    <p class="load-more">
+      Load more<i class="material-icons prefix me-2">expand_more</i>
+    </p>
+  </div>
+</div>
+
+<div id="history-detail" class="modal bottom-sheet modal-fixed-footer">
+  <h5 style="font-weight: 700;color: #607d8b;margin-left: 20px;margin-top: 20px;">{{modalDate}}
+    <span>  (working for {{
+     modalWorkingHours
+     }} )</span>
+     </h5>
+  <div class="modal-content"  style="bottom: 32px;" >
+      <div class="col s12">
+        <div>
+          <div class="col-12">
+            <table class="highlight centered">
+              <thead>
+                <tr>
+                    <th>Entry time</th>
+                    <th>Exit time</th>
+                </tr>
+              </thead>
+      
+              <tbody>
+                <tr *ngFor="let item of modalTimelog">
+                  <td>{{item.in}}</td>
+                  <td>{{item.out == '-' ? '23:59:59' : item.out}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- <table>
+              <tr class="center-align">
+                <th>Entry time</th>
+                <th>Exit time</th>
+              </tr>
+              <tr class="striped" class="text-center" *ngFor="let time of logsArr">
+                <td>test1</td>
+                <td>test2</td>
+              </tr>
+            </table> -->
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="modal-footer">
+    <a class="modal-close waves-effect waves-green btn-flat">close</a>
+  </div>
+</div>

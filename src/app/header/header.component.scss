@@ -1,0 +1,27 @@
+.header{
+padding: 20px;
+
+
+.page_title span{
+    font-weight: 400;
+}
+.page_title{
+    font-weight: bold;
+}
+h3 img{
+    height: 3.3rem;
+    width: auto;
+}
+}
+
+.btnHistory{
+    background-color: transparent;
+}
+@media only screen and (max-width: 600px) and (min-width: 0px)  {
+    .header{
+        padding: 10px 0px;
+        .page_title{
+            font-size: 1.5rem;
+        }
+    } 
+}
