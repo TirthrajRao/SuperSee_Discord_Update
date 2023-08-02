@@ -431,7 +431,7 @@ try {
   });
 
   autoUpdater.on('error', (error) => {
-    win.webContents.send('error in autoupdate', error);
+    win.webContents.send('error_in_update', error);
   });
 
 } catch (e) {

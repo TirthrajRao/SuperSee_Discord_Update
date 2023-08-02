@@ -14,7 +14,7 @@ import { config } from "../config";
 import { FirebaseDatabaseService } from "../services/firebase-database.service";
 import { ProjectService } from "../services/project.service";
 const fsystem = require("fs");
-declare var M: any;
+// declare var M: any;
 
 @Component({
   selector: "app-home",
