@@ -157,9 +157,9 @@ function createWindow(): BrowserWindow {
     // win.webContents.openDevTools()
   }
 
-  if (serve) {
-    win.webContents.openDevTools();
-  }
+  // if (serve) {
+  win.webContents.openDevTools();
+  // }
 
   win.on("close", (e) => {
     // Do your control here
