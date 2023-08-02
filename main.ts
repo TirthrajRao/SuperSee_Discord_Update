@@ -410,7 +410,7 @@ try {
 
 
   autoUpdater.on('checking-for-update', () => {
-    // win.webContents.send('checking_for_update');
+    win.webContents.send('checking_for_update');
   });
 
   autoUpdater.on('update-available', (info) => {
@@ -418,20 +418,20 @@ try {
   });
 
   autoUpdater.on('update-not-available', (info) => {
-    // win.webContents.send('update_not_available');
+    win.webContents.send('update_not_available');
   });
 
   autoUpdater.on('download-progress', (progressTrack) => {
-    // win.webContents.send('download_progress');
+    win.webContents.send('download_progress');
   });
 
   autoUpdater.on('update-downloaded', (info) => {
+    win.webContents.send('update_downloaded');
     autoUpdater.quitAndInstall();
-    // win.webContents.send('update_downloaded');
   });
 
   autoUpdater.on('error', (error) => {
-    // win.webContents.send('update_downloaded');
+    win.webContents.send('error in autoupdate', error);
   });
 
 } catch (e) {

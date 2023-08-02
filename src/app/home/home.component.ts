@@ -14,6 +14,7 @@ import { config } from "../config";
 import { FirebaseDatabaseService } from "../services/firebase-database.service";
 import { ProjectService } from "../services/project.service";
 const fsystem = require("fs");
+declare var M: any;
 
 @Component({
   selector: "app-home",
@@ -83,6 +84,8 @@ export class HomeComponent implements OnInit {
     private dbService: FirebaseDatabaseService,
     private _projectService: ProjectService,
   ) {
+
+
     ipcRenderer.on("start", async (event, sourceId) => {
       try {
         this.start();
