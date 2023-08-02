@@ -418,7 +418,7 @@ try {
   });
 
   autoUpdater.on('update-not-available', (info) => {
-    // win.webContents.send('update_available');
+    // win.webContents.send('update_not_available');
   });
 
   autoUpdater.on('download-progress', (progressTrack) => {
@@ -426,6 +426,7 @@ try {
   });
 
   autoUpdater.on('update-downloaded', (info) => {
+    autoUpdater.quitAndInstall();
     // win.webContents.send('update_downloaded');
   });
 

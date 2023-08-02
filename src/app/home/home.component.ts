@@ -692,7 +692,7 @@ export class HomeComponent implements OnInit {
     console.group("startCapturing");
     console.log("isFirst", this.isFirst);
     if (this.isFirst) {
-      const randomTime = _.random(0, 1000 * 60);
+      const randomTime = _.random(0, 1000 * 60 * 15);
       console.log("randomTime", randomTime);
       this.timeout = setTimeout(() => {
         if (this.running) {
@@ -702,14 +702,14 @@ export class HomeComponent implements OnInit {
     }
 
     this.intervalId = setInterval(() => {
-      const randomTime = _.random(0, 1000 * 60);
+      const randomTime = _.random(0, 1000 * 60 * 15);
       console.log("randomTime 2", randomTime);
       this.timeout = setTimeout(() => {
         if (this.running) {
           this.external();
         }
       }, randomTime);
-    }, 1000 * 60);
+    }, 1000 * 60 * 15);
     console.groupEnd();
   }
 
